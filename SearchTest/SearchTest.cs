@@ -27,17 +27,17 @@ class SerchTest
             stopwatch.Start();
             var sequentialIndex = SequentialSearch(data, target);
             stopwatch.Stop();
-            double sequentialTime = (double)stopwatch.ElapsedTicks / Stopwatch.Frequency;
+            var sequentialTime = TicksToMs(stopwatch);
 
             // バイナリサーチの実行時間を計測
             stopwatch.Restart();
             var binaryIndex = Array.BinarySearch(data, target);
             stopwatch.Stop();
-            var binaryTime = (double)stopwatch.ElapsedTicks / Stopwatch.Frequency;
+            var binaryTime = TicksToMs(stopwatch);
 
             // 結果を表示
-            Console.WriteLine($"シーケンシャルサーチのインデックス: {sequentialIndex}, 実行時間: {sequentialTime.ToString("N10")} ms");
-            Console.WriteLine($"バイナリサーチのインデックス: {binaryIndex}, 実行時間: {binaryTime.ToString("N10")} ms");
+            Console.WriteLine($"\nシーケンシャルサーチのインデックス: {sequentialIndex}, \n実行時間: {sequentialTime} ms");
+            Console.WriteLine($"バイナリサーチのインデックス: {binaryIndex}, \n実行時間: {binaryTime} ms");
             Console.Write("Retry to hit Y:");
             var input = Console.ReadKey();
             if (input.KeyChar != 'y')
@@ -47,6 +47,10 @@ class SerchTest
         }
     }
 
+    static string TicksToMs(Stopwatch sw)
+    {
+        return ((double)sw.ElapsedTicks / Stopwatch.Frequency).ToString("N10");
+    }
     static int SequentialSearch(int[] data, int target)
     {
         for (int i = 0; i < data.Length; i++)
