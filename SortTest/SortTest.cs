@@ -5,7 +5,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class SortTest
 {
-    static readonly int DATA_LENGTH = 10000;
+    static readonly int DATA_LENGTH = 20;
     static void Main()
     {
         int[] array = new int[DATA_LENGTH];
@@ -55,6 +55,7 @@ class SortTest
     {
         for (int i = 0; i < array.Length - 1; i++)
         {
+            bool isSwapped = false;
             for (int j = 0; j < array.Length - i - 1; j++)
             {
                 if (array[j] > array[j + 1])
@@ -62,7 +63,12 @@ class SortTest
                     int temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
+                    isSwapped = true;
                 }
+            }
+            if (!isSwapped)
+            {
+                break;
             }
         }
     }
