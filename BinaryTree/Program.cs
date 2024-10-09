@@ -67,7 +67,7 @@ namespace BinaryTree
                 return FindNode(Root, randValue);
             }
 
-            private int FindNode(TreeNode node, int value)
+            public int FindNode(TreeNode node, int value)
             {
                 if (node == null)
                 {
@@ -107,7 +107,8 @@ namespace BinaryTree
             Stopwatch sw = Stopwatch.StartNew();
             try
             {
-                int foundValue = tree.FindRandomNode();
+                //int foundValue = tree.FindRandomNode();
+                int foundValue = tree.FindNode(tree.Root, array[rand.Next(0,array.Length)]);
                 Console.WriteLine($"Found Value: {foundValue}");
             }
             catch (Exception ex)
