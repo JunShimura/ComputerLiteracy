@@ -5,7 +5,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class SortTest
 {
-    static readonly int DATA_LENGTH = 20;
+    static readonly int DATA_LENGTH = 2000;
     static void Main()
     {
         int[] array = new int[DATA_LENGTH];
