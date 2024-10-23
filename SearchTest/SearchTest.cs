@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 class SerchTest
 {
-    static readonly int DATA_LENGTH = 20000000;
+    static readonly int DATA_LENGTH = 1000;
     static void Main()
     {
         // ランダムなデータを生成
